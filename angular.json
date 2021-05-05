@@ -8,6 +8,7 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+
         }
       },
       "root": "",
@@ -28,9 +29,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/leaflet/dist/leaflet.js"
+            ]
           },
           "configurations": {
             "production": {

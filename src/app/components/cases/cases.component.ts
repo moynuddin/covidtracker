@@ -55,6 +55,7 @@ export class CasesComponent implements OnInit {
     this.diseaseService.country(country).subscribe(
       (res) => {
         // console.log(res);
+        this.diseaseService.mapState.next(res);
 
         this.country = res;
       },

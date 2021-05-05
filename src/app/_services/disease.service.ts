@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class DiseaseService {
   constructor(private http: HttpClient) {}
   chartState: BehaviorSubject<any> = new BehaviorSubject('');
+  mapState: BehaviorSubject<any> = new BehaviorSubject('');
   globalData() {
     return this.http.get(environment.BASE_URL);
   }
