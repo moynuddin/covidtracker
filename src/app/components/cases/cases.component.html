@@ -1,6 +1,7 @@
 <div class="w-full h-screen bg-green-200 relative">
   <div class="flex justify-center pt-10">
-    <h1 class="text-2xl">{{ country?.country }}</h1>
+    <h1 *ngIf="!country" class="text-2xl">{{ "World Wide" }}</h1>
+    <h1 *ngIf="country" class="text-2xl">{{ country.country }}</h1>
   </div>
   <div class="flex justify-center items-center absolute top-36 inset-x-36">
     <div

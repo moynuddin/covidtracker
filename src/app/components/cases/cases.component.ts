@@ -42,18 +42,33 @@ export class CasesComponent implements OnInit {
   }
   SelectCountry(e) {
     const name = e.target.value;
-    console.log(name);
+    // console.log(name);
     if (name) {
       this.getSpecificCountry(name);
+    }
+    if (name) {
+      this.getHistoricData(name);
     }
   }
 
   getSpecificCountry(country) {
     this.diseaseService.country(country).subscribe(
       (res) => {
-        console.log(res);
+        // console.log(res);
 
         this.country = res;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getHistoricData(country) {
+    this.diseaseService.graphicData(country).subscribe(
+      (res) => {
+        // console.log(res);
+        this.diseaseService.chartState.next(res);
       },
       (error) => {
         console.log(error);
