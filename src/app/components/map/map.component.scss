@@ -1,3 +1,61 @@
 #mapid {
   height: 30rem;
+  margin-bottom: 2rem;
+}
+.leaflet-marker-icon {
+  /* margin-left: -22px; */
+  /* margin-top: -94px; */
+  width: 20;
+  height: 20;
+  transform: translate3d(1434px, 484px, 0px);
+  z-index: 528;
+}
+footer {
+  background: cornflowerblue;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .footer-content {
+    margin: 0;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: cornsilk;
+  }
+  .icons a {
+    // padding: 1rem;
+    font-size: 2rem;
+    color: rgb(97, 86, 86);
+    & .fab {
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  footer {
+    background: cornflowerblue;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .footer-content {
+      margin: 0;
+      padding: 1rem;
+      font-size: 0.5rem;
+      font-weight: 700;
+      color: cornsilk;
+    }
+    .icons a {
+      // padding: 1rem;
+      font-size: 1rem;
+      color: rgb(97, 86, 86);
+      & .fab {
+        margin-right: 1rem;
+      }
+    }
+  }
 }

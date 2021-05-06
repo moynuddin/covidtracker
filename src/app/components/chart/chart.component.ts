@@ -25,6 +25,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
+    this.getGlobalHistoricData();
     this.diseaseService.chartState.subscribe(
       (res) => {
         if (res) {
@@ -37,6 +38,16 @@ export class ChartComponent implements OnInit, AfterViewInit {
           }
           this.barGraph(this.cases, this.deaths, this.recovered);
         }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  getGlobalHistoricData() {
+    this.diseaseService.globalGraphicData().subscribe(
+      (res) => {
+        // console.log(res);
       },
       (error) => {
         console.log(error);
@@ -86,7 +97,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
             beginAtZero: true,
           },
         },
-        responsive: false,
+        responsive: true,
         animations: {
           tension: {
             duration: 1000,

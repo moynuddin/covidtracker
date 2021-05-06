@@ -1,1 +1,12 @@
+#chart {
+  width: 1300;
+  height: 300;
+}
 
+@media (max-width: 575.98px) {
+  #chart {
+    width: 400 !important;
+    height: 800 !important;
+    margin-bottom: 2rem;
+  }
+}
