@@ -23,6 +23,6 @@ export class DiseaseService {
     return this.http.get(`${environment.graph_URL}/${country}`);
   }
   globalGraphicData() {
-    return this.http.get(`${environment.graph_URL}/?lastdays=30`);
+    return this.http.get(`${environment.graph_URL}/all`);
   }
 }

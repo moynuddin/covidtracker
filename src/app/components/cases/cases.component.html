@@ -19,44 +19,51 @@
   </h1>
   <div class="content-wrapper">
     <div class="total_cases">
-      <img
+      <!-- <img
         class="d-none d-md-block d-lg-block d-xl-block"
         *ngIf="country"
         src="{{ country?.countryInfo?.flag }}"
         alt="{{ country?.countryInfo?.iso3 }}"
         style="width: 3rem; z-index: 1"
-      />
-      <p class="d-xs-flex justify-content-xs-center">Total Cases</p>
-      <p *ngIf="!country" class="">{{ data?.cases | number }}</p>
-      <p *ngIf="country" class="text-2xl">{{ country.cases | number }}</p>
-      <p *ngIf="country">Today Cases</p>
+      /> -->
+      <p class="d-xs-flex justify-content-xs-center">Today Cases</p>
+      <p *ngIf="!country" class="">{{ todayCases }}</p>
       <p *ngIf="country" class="text-2xl">
-        {{ country.todayCases | number }}
+        {{ todayCases }}
       </p>
+      <p class="d-xs-flex justify-content-xs-center text-lead">Total Cases</p>
+      <p *ngIf="!country" class="">{{ cases }}</p>
+      <p *ngIf="country" class="text-2xl">{{ cases }}</p>
+      <!-- <p *ngIf="country">Today Cases</p> -->
     </div>
     <div class="total_active">
-      <p>Active Cases</p>
-      <p *ngIf="!country" class="text-2xl">{{ data?.active | number }}</p>
-      <p *ngIf="country" class="text-2xl">{{ country.active }}</p>
-      <p class="recovered_cases" *ngIf="country">Today Recovered</p>
-      <p *ngIf="country" class="text-2xl">
-        {{ country.todayRecovered | number }}
+      <p class="recovered_cases">Today Recovered</p>
+      <p *ngIf="!country" class="">
+        {{ todayRecovered }}
       </p>
+      <p *ngIf="country">
+        {{ todayRecovered }}
+      </p>
+      <p>Active Cases</p>
+      <p *ngIf="!country">{{ active }}</p>
+      <p *ngIf="country">{{ active }}</p>
     </div>
     <div class="total_deaths">
-      <p>Total Deaths</p>
-
-      <p *ngIf="!country" class="text-2xl">{{ data?.deaths | number }}</p>
-      <p *ngIf="country" class="text-2xl">{{ country.deaths }}</p>
-      <p *ngIf="country">Today Deaths</p>
-      <p *ngIf="country" class="text-2xl">
-        {{ country.todayDeaths | number }}
+      <p>Today Deaths</p>
+      <p *ngIf="!country" class="">
+        {{ todayDeaths }}
       </p>
+      <p *ngIf="country" class="">
+        {{ todayDeaths }}
+      </p>
+      <p>Total Deaths</p>
+      <p *ngIf="!country" class="">{{ deaths }}</p>
+      <p *ngIf="country" class="">{{ deaths }}</p>
     </div>
   </div>
   <div class="dropdown-wrapper">
     <select
-      class="form-control"
+      class="form-select"
       (change)="SelectCountry($event)"
       style="width: 25rem"
     >
@@ -67,70 +74,3 @@
     </select>
   </div>
 </div>
-
-<!--
-<div class="w-full h-screen bg-green-100 relative">
-  <div class="flex justify-center pt-10">
-    <h1 *ngIf="!country" class="text-2xl">{{ "World Wide" }}</h1>
-    <h1 *ngIf="country" class="text-2xl">{{ country.country }}</h1>
-  </div>
-  <div class="flex justify-center items-center absolute top-36 inset-x-36">
-    <div
-      class="w-60 h-36 rounded text-center align-middle bg-purple-100 mr-2 pt-2 shadow-xl font-mono text-lg"
-    >
-      <div class="flex flex-col justify-around w-auto h-full items-stretch">
-        <img
-          class="absolute top-0"
-          *ngIf="country"
-          src="{{ country?.countryInfo?.flag }}"
-          alt="{{ country?.countryInfo?.iso3 }}"
-          style="width: 3rem; z-index: 1"
-        />
-        <h3>Total Cases</h3>
-        <p *ngIf="!country" class="text-2xl">{{ data?.cases | number }}</p>
-        <p *ngIf="country" class="text-2xl">{{ country.cases | number }}</p>
-        <h5 *ngIf="country">Today Cases</h5>
-        <p *ngIf="country" class="text-2xl">
-          {{ country.todayCases | number }}
-        </p>
-      </div>
-    </div>
-    <div
-      class="w-60 h-36 rounded text-center align-middle bg-purple-100 mr-2 pt-2 shadow-xl font-mono text-lg"
-    >
-      <div class="flex flex-col justify-around w-full h-full items-stretch">
-        <h3>Active Cases</h3>
-        <p *ngIf="!country" class="text-2xl">{{ data?.active | number }}</p>
-        <p *ngIf="country" class="text-2xl">{{ country.active }}</p>
-        <h5 *ngIf="country">Today Recovered</h5>
-        <p *ngIf="country" class="text-2xl">
-          {{ country.todayRecovered | number }}
-        </p>
-      </div>
-    </div>
-    <div
-      class="w-60 h-36 rounded text-center align-middle bg-purple-100 mr-2 pt-2 shadow-xl font-mono text-lg"
-    >
-      <div class="flex flex-col justify-around w-full h-full items-stretch">
-        <h3>Total Deaths</h3>
-
-        <p *ngIf="!country" class="text-2xl">{{ data?.deaths | number }}</p>
-        <p *ngIf="country" class="text-2xl">{{ country.deaths }}</p>
-        <h5 *ngIf="country">Today Deaths</h5>
-        <p *ngIf="country" class="text-2xl">
-          {{ country.todayDeaths | number }}
-        </p>
-      </div>
-    </div>
-  </div>
-  <select
-    class="absolute top-1/2 w-96 h-12 py-2 px-2 rounded"
-    (change)="SelectCountry($event)"
-    style="left: 35rem"
-  >
-    <option value="">Select Countries</option>
-    <option *ngFor="let country of specificCountry">
-      {{ country.country }}
-    </option>
-  </select>
-</div> -->

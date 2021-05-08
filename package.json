@@ -24,6 +24,7 @@
     "bootstrap": "^5.0.0",
     "chart.js": "^3.2.1",
     "leaflet": "^1.7.1",
+    "numeral": "^2.0.6",
     "postcss": "^8.2.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

@@ -20,6 +20,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
   deaths: any;
   recovered: any;
   dates: any;
+  newCases: any = [];
   constructor(private diseaseService: DiseaseService) {}
 
   ngOnInit(): void {}
@@ -48,6 +49,16 @@ export class ChartComponent implements OnInit, AfterViewInit {
     this.diseaseService.globalGraphicData().subscribe(
       (res) => {
         // console.log(res);
+        if (res) {
+          this.cases = res['cases'];
+          this.deaths = res['deaths'];
+          this.recovered = res['recovered'];
+
+          if (this.barChart) {
+            this.barChart.destroy();
+          }
+          this.barGraph(this.cases, this.deaths, this.recovered);
+        }
       },
       (error) => {
         console.log(error);
@@ -58,11 +69,11 @@ export class ChartComponent implements OnInit, AfterViewInit {
   barGraph(cases, deaths, recovered) {
     const dates = Object.keys(cases);
     const Todaycases = Object.values(cases);
-    const Todaydeaths = Object.values(deaths);
+    const Todaydeaths: any = Object.values(deaths);
     const TodayRecovered = Object.values(recovered);
 
     this.barChart = new Chart(this.chart.nativeElement, {
-      type: 'line',
+      type: 'bar',
       data: {
         labels: dates,
         datasets: [
@@ -77,8 +88,8 @@ export class ChartComponent implements OnInit, AfterViewInit {
           {
             label: 'Deaths',
             data: Todaydeaths,
-            borderColor: 'rgb(139,0,0)',
-            backgroundColor: 'rgb(139,0,0)',
+            borderColor: 'rgb(224, 5, 5)',
+            backgroundColor: 'rgb(224, 5, 5)',
             borderWidth: 1,
           },
           {
