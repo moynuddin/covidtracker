@@ -1,5 +1,7 @@
 <app-cases></app-cases>
 <div class="components">
   <app-chart></app-chart>
-  <app-map></app-map>
+  <ng-container *ngIf="map">
+    <app-map></app-map>
+  </ng-container>
 </div>
